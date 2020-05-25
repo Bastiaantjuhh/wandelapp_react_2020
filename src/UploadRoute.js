@@ -38,7 +38,7 @@ class UploadRoute extends Component {
     return (
       <div>
         <input type="file" onChange={this.onChangeHandler} />
-        <button type="button" onClick={this.fileUploadHandler}>Upload File</button>
+        <button id="test" type="button" onClick={this.fileUploadHandler}>Upload File</button>
       </div>
     );
   }

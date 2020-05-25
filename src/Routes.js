@@ -51,7 +51,7 @@ class Routes extends Component {
     this.props.onRouteSelect(data.json);
   }
 
-  render() {
+  render(){
     const style = {
       flex: '1 1 0'
     };

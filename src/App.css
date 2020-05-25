@@ -12,6 +12,10 @@ body {
 .mapboxgl-map {
 }
 
+#test{
+  height: 25px !important;
+}
+
 #root > div:nth-child(1) {
   height:10vh;
 }
