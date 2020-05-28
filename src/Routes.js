@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {getroutesjson} from './rest_routes';
+import {getRoutesJson} from './rest_routes';
 
 class Routes extends Component {
   constructor(props) {
@@ -13,10 +13,10 @@ class Routes extends Component {
     //Get routes from server
     const cuid = 'test';
     const remoteServer = 'https://wandelappbackend-v5.herokuapp.com';
-    getroutesjson(remoteServer + '/routes?cuid=' + cuid)
+    getRoutesJson(remoteServer + '/routes?cuid=' + cuid)
       .then(
-        (routesjson) => {
-          this.setState({routes: routesjson});
+        (routesJson) => {
+          this.setState({routes: routesJson});
         },
         (reason) => {
           // Error retreiving routes!

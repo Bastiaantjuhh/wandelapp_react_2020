@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 import ReactMapboxGl, {GeoJSONLayer, Layer, Feature } from "react-mapbox-gl";
 import Position from './Position';
-import mapkey from "./modules/keytext";
+import mapKey from "./modules/keytext";
 
 // Meer over mapgl in react:
 // https://github.com/alex3165/react-mapbox-gl/blob/master/docs/API.md
 
 const Map = ReactMapboxGl({
-  accessToken: mapkey()
+  accessToken: mapKey()
 });
 
 

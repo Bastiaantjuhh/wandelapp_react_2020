@@ -18,13 +18,13 @@ export default class MapBox {
     //Init
     constructor() {
         this.map = new Mapboxgl();
-        this.defaultzoomlevel = 12;
-        this.youarehere = null;
+        this.defaultZoomLevel = 12;
+        this.youAreHere = null;
         this.el = document.createElement('div');
         this.el.className = 'marker';
 
 
-        this.map.on('click', function (e) {
+        this.map.on('click', function(e) {
             const features = this.map.queryRenderedFeatures(e.point, { layers: ['poi'] });
             if (!features.length) {
                 return;
@@ -44,18 +44,18 @@ export default class MapBox {
     }
 
     //Center map around coordinates
-    center(lnglat){
+    center(lnglat) {
         if (!lnglat) {
             return;
         }
         console.log(lnglat);
         this.map.setCenter(lnglat);
-        this.map.setZoom(this.defaultzoomlevel);
+        this.map.setZoom(this.defaultZoomLevel);
     }
 
     //Show route and set events
     showroute(geo_json) {
-        if(!geo_json) {
+        if (!geo_json) {
             return;
         }
 
@@ -65,17 +65,16 @@ export default class MapBox {
             this.map.removeSource("poi");
             this.map.removeLayer("route");
             this.map.removeSource("route");
-        }
-        catch(e){
+        } catch (e) {
             console.log('layer or source doesnt exist');
         }
 
         /////
         // POI (points of interest)
         // https://www.mapbox.com/mapbox-gl-js/example/geojson-markers/
-        const poi_filter = geo_json.features.filter((feature)=>{
+        const poi_filter = geo_json.features.filter((feature) => {
             //If feature.geometry.type isn't Point, delete this feature
-            return feature.geometry.type==="Point";
+            return feature.geometry.type === "Point";
         });
         const poi = {
             "type": "geojson",
@@ -85,7 +84,7 @@ export default class MapBox {
             }
         };
         this.map.addSource("poi", poi);
-        let routelayer = this.map.addLayer({
+        let routelLayer = this.map.addLayer({
             "id": "poi",
             "type": "symbol",
             "source": "poi",
@@ -101,9 +100,9 @@ export default class MapBox {
         ///////
         // ROUTE
         // https://www.mapbox.com/mapbox-gl-js/example/geojson-line/
-        const route_filter = geo_json.features.filter((feature)=>{
+        const route_filter = geo_json.features.filter((feature) => {
             //If feature.geometry.type isn't LineString
-            return feature.geometry.type==="LineString";
+            return feature.geometry.type === "LineString";
         });
         const route = {
             "type": "geojson",
@@ -132,14 +131,14 @@ export default class MapBox {
     }
 
     //You-are-here Marker
-    geo_success(position) {
+    geoSuccess(position) {
         console.log("New pos:" + position);
-        if (this.youarehere) {
-            this.youarehere.remove();
+        if (this.youAreHere) {
+            this.youAreHere.remove();
         }
         const location = [position.coords.longitude, position.coords.latitude];
 
-        this.youarehere = new mapboxgl.Marker(this.el, {offset: [-10, -10]})
+        this.youAreHere = new mapboxgl.Marker(this.el, { offset: [-10, -10] })
             .setLngLat(location)
             .addTo(this.map);
         this.center(location);
