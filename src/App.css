@@ -8,6 +8,11 @@
 body {
   background-color: #b4e0e1;
 }
+ul {
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+}
 
 .mapboxgl-map {
 }
