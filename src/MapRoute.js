@@ -7,7 +7,8 @@ import mapKey from "./modules/keytext";
 // https://github.com/alex3165/react-mapbox-gl/blob/master/docs/API.md
 
 const Map = ReactMapboxGl({
-  accessToken: mapKey()
+  accessToken: mapKey(),
+  scrollZoom: false
 });
 
 
