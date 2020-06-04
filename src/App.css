@@ -8,6 +8,14 @@
 body {
   background-color: #b4e0e1;
 }
+
+@media (prefers-color-scheme: dark){
+  body {
+    background-color:black;
+    color:white;
+  }
+}
+
 ul {
   columns: 2;
   -webkit-columns: 2;
@@ -33,3 +41,4 @@ ul {
 #root > div:nth-child(4) {
   height:10vh;
 }
+
