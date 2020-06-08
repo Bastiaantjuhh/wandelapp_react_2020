@@ -58,6 +58,7 @@ class Routes extends Component {
     })
      .then(res => res.text()) // or res.json()
       .then(res => console.log(res));
+      window.location.reload();
   };
 
   render(){
