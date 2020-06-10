@@ -14,6 +14,7 @@ class UploadRoute extends Component {
         this.setState({
             selectedFile: file
         });
+
     }
 
     fileUploadHandler = () => {
@@ -35,9 +36,10 @@ class UploadRoute extends Component {
     };
 
     render() {
-        return ( <div>
-        <input type = "file" onChange = { this.onChangeHandler } /><button id = "test" type = "button" onClick = { this.fileUploadHandler }>Upload File</button>
-        </div>
+        return (
+            <div id='box'>
+        <input accept=".gpx" type = "file" onChange = { this.onChangeHandler } /><button  type = "button"  onClick = { this.fileUploadHandler }>Upload File</button>
+            </div>
         );
     }
 }
