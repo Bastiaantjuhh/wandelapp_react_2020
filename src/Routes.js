@@ -71,6 +71,7 @@ class Routes extends Component {
     };
     return (
       <div style={style}>
+        <h2>Routes</h2>
         <ul>
           {this.state.routes.map(route =>
             <li onClick={this.selectRoute.bind(this, route.data)} key={route.data._id}>{route.data.json.features[0].properties.name} <p style={verwijder} onClick={this.deleteRoute.bind(this, route.data._id)}>verwijder route</p></li>
