@@ -39,7 +39,6 @@ class App extends Component {
         <MapRoute onMessage={this.handleInfoChange.bind(this)} geojson={this.state.selectedRoute}/>
         <UploadRoute onUpdated={this.handleUploadInfo.bind(this)}/>
         <Routes refresh={this.state.refresh} onRouteSelect={this.handleRouteSelect.bind(this)}/>
-        <Alert/>
       </div>
     );
   }
