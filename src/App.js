@@ -5,6 +5,7 @@ import MapRoute from "./MapRoute";
 import Routes from "./Routes";
 import Info from "./Info";
 import UploadRoute from './UploadRoute';
+import Alert from './react-confirm-alert';
 
 class App extends Component {
   constructor(props) {
@@ -38,6 +39,7 @@ class App extends Component {
         <MapRoute onMessage={this.handleInfoChange.bind(this)} geojson={this.state.selectedRoute}/>
         <UploadRoute onUpdated={this.handleUploadInfo.bind(this)}/>
         <Routes refresh={this.state.refresh} onRouteSelect={this.handleRouteSelect.bind(this)}/>
+        <Alert/>
       </div>
     );
   }

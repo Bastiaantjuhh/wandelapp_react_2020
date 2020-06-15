@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { postTextFile } from './rest_routes';
-
 class UploadRoute extends Component {
     constructor(props) {
             super(props);
