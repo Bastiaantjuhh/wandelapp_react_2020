@@ -5,6 +5,7 @@ import MapRoute from "./MapRoute";
 import Routes from "./Routes";
 import Info from "./Info";
 import UploadRoute from './UploadRoute';
+import Alert from './react-confirm-alert';
 
 class App extends Component {
   constructor(props) {
